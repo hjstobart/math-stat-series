@@ -1,5 +1,5 @@
 <td>
-<img src="images/1.png" style="width:1275px;height:75px">
+<img src="images/Header 1.png" style="width:1275px;height:60px">
 </td>
 
 ## Mathematics & Statistics Series
@@ -7,8 +7,6 @@
 Want to learn more about mathematics and statistics topics? Already studied them in the past but simply forgotten? Well this series is here to help!
 
 `** The May-22 issue is now live, check it out. **`
-
-_Copyright © 2022_
 
 ## Overview
 
@@ -24,10 +22,10 @@ The second reason is that in reminding myself I hope this series will also help 
 
   <tr class="odd">
   <td> <b>May 2022<b> <br>
-  <img src="images/ml.png" style="width:2.13889in;height:1.55726in" /></td>
+  <img src="images/Simple.png" style="width:2.13889in;height:1.55726in" /></td>
   <td><ul>
   <b>Math/Stat Series, Issue 1<b> <br>
-  <a href="fill_in_link_here">Solving Ordinary Differential Equations using Separation of Variables</a>
+  <a href="https://github.com/hjstobart/MATH-STAT-Series/blob/main/Solving_ODEs_using_Separation_of_Variables.pdf">Solving Ordinary Differential Equations using Separation of Variables</a>
   </ul></td>
   </tr>
 
@@ -35,3 +33,8 @@ The second reason is that in reminding myself I hope this series will also help 
 
   </tbody>
   </table>
+
+    
+<td>
+<img src="images/Footer.png" style="width:1275px;height:60px">
+</td>
