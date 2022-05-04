@@ -1,5 +1,5 @@
 <td>
-<img src="images/Header1.png" style="width:1275px;height:40px">
+<img src="images/Header1.png" style="width:1275px;height:35px">
 </td>
 
 ## Mathematics & Statistics Series
@@ -36,5 +36,5 @@ The second reason is that in reminding myself I hope this series will also help 
 
     
 <td>
-<img src="images/Footer1.png" style="width:1275px;height:40px">
+<img src="images/Footer1.png" style="width:1275px;height:35px">
 </td>
