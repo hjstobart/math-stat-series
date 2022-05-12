@@ -1,0 +1,99 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.2in]{geometry} 
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{accents}
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+%\linespread{1.3}
+
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}
+  \begin{proof}[Solution]}
+  {\end{proof}}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+\newcommand{\HRule}{\rule{\textwidth{1mm}}} % Defines a new command for horizontal lines, change thickness here
+
+
+\begin{document}
+
+\lhead{Mr. \textsc{H. Stobart}} 
+\rhead{\textsc{Math/Stat Series \\ Issue 1, May-22}}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+\begin{tcolorbox}
+\begin{center}
+    \large
+    \textsc{Solving Ordinary Differential Equations Using Separation of Variables}
+\end{center}
+\end{tcolorbox}
+
+\begin{center}
+\textbf{Note:} \textit{This work is intended for informative and educational purposes only.}
+\end{center}
+
+\section*{1. Introduction}
+We consider how to solve one-dimensional ordinary differential equations (ODEs) using the separation of variables technique. This is, perhaps, the most straightforward of techniques for solving ODEs, we shall explore different techniques in other issues.
+
+\section*{2. Setup}
+Suppose we have two functions $f: \mathbb{R} \longrightarrow \mathbb{R}$, and $g: \mathbb{R} \longrightarrow \mathbb{R}$. Also, suppose we can write our ODE in the following form.
+\begin{equation}
+    \frac{df(x)}{dx} = g(x)h(f(x))
+\end{equation}
+Then we can use the separation of variables technique to solve the ODE. 
+
+\section*{3. Method}
+We start by slightly modifying (1) for aesthetic purposes only. Letting $y = f(x)$, we write,
+\begin{equation}
+    \frac{dy}{dx} = g(x)h(y).
+\end{equation}
+Then under the condition that $h(y) \neq 0$, we can divide through by $h(y)$. This gives,
+\begin{equation}
+    \frac{1}{h(y)} \frac{dy}{dx} = g(x).
+\end{equation}
+Now multiplying through by $dx$ and integrating we obtain,
+\begin{equation}
+   \int \frac{1}{h(y)} \frac{dy}{dx} dx = \int g(x) dx .
+\end{equation}
+Which simply becomes,
+\begin{equation}
+   \int \frac{1}{h(y)} dy = \int g(x) dx .
+\end{equation}
+Thus solving our ODE. It is clear where the term \textit{separation of variables} comes from, as we are quite literally separating the variables either side of the equals sign. $\square$
+
+\newpage
+
+\section*{4. Example}
+Let's look at a specific example. Find the general solution of the following ODE,
+\begin{equation}
+    \frac{dy}{dx} = y^2 e^{-4x}.
+\end{equation}
+We can clearly see that $g(x) = e^{-4x}$ and $h(y) = y^2$. Separating the variables we find,
+\begin{equation}
+    \int \frac{1}{y^2} \frac{dy}{dx} dx = \int e^{-4x} dx.
+\end{equation}
+Which simplifies to,
+\begin{equation}
+    \int \frac{1}{y^2} dy = \int e^{-4x} dx.
+\end{equation}
+Integrating both sides we obtain,
+\begin{equation}
+    -\frac{1}{y} + c_1 = -\frac{1}{4 }e^{-4x} + c_2.
+\end{equation}
+Which gives, 
+\begin{equation}
+    \frac{1}{y} = \frac{1 + c_3 e^{4x}}{4e^{4x}}.
+\end{equation}
+Finally, we find the solution,
+\begin{equation}
+   y = \frac{4e^{4x}}{1 + c_3 e^{4x}}.
+\end{equation}
+Unfortunately, in this example the constants of integration make the solution appear a somewhat convoluted expression, however, it does serve to illustrate their importance. 
+\end{document}
