@@ -21,9 +21,9 @@ The second reason is that in reminding myself I hope this series will also help 
   <tbody>
 
   <tr class="odd">
-  <td> <b>May 2022<b> <br>
+  <td align="center" valign="center"> <b>May 2022<b> <br>
   <img src="images/Simple.png" style="width:2.13889in;height:1.55726in" /></td>
-  <td><ul>
+  <td align="left" valign="center"><ul>
   <b>Math/Stat Series, Issue 1<b> <br>
   <a href="https://github.com/hjstobart/Math-Stat-Series/blob/main/Math-Stat%20Issue%201.pdf">Solving Ordinary Differential Equations using Separation of Variables</a>
   </ul></td>
