@@ -33,7 +33,21 @@ The second reason is that in reminding myself I hope this series will also help 
 
   </tbody>
   </table>
+    
+---
+<details><summary>License</summary>
+<p>
 
+__Copyright 2022 Harry Stobart__
+  
+_Permission is hereby granted, free of charge, to any person obtaining the underlying .TeX files, including without limitation the rights to use, copy, modify, merge, and/or distribute copies of the .TeX files._
+
+_The above copyright notice and this permission notice shall serve as warning of the following condition:_
+
+THE FILES ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE FILES OR THE USE OR OTHER DEALINGS IN THE FILES.
+
+  </p>
+  </details>
     
 <td>
 <img src="images/Footer1.png" style="width:1275px;height:35px">
