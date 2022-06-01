@@ -1,0 +1,192 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.2in]{geometry} 
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{accents}
+\usepackage{parskip}
+\usepackage{tabularx}
+\usepackage{multirow}
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+
+\begin{document}
+
+\lhead{Mr. \textsc{H. Stobart}} 
+\rhead{\textsc{Math/Stat Series \\ Issue 5, May-22}}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+\begin{tcolorbox}
+\begin{center}
+    \large
+    \textsc{Laplace Transforms: \\ Introduction, Properties, and Examples}
+\end{center}
+\end{tcolorbox}
+
+\begin{center}
+\textbf{Note:} \textit{This work is intended for informative and educational purposes only.}
+\end{center}
+
+\section*{1. Introduction}
+In this issue we continue in a similar spirit to the last month, focusing this time on another important, although slightly more challenging, method: the Laplace Transform.
+
+As will become apparent, the additional issue presented by Laplace transforms relates to their inversion. The forward transform proceeds much like its cousin the Fourier transform, but inverting requires some knowledge of Complex Analysis––that is, the extension of traditional calculus results and techniques to the complex plane. This issue does not cover the subtleties of Complex Analysis. The interested reader can find a wealth of information in any appropriately titled book, or online lecture series.
+
+The Laplace Transform can also be used to transform ordinary differential equations, partial differential equations, and more into a form that is easier to solve. However, whilst the Fourier Transform appears in a wide range of fields, the Laplace Transform tends to restricted to the world of Mathematics and Physics. 
+
+\section*{2. Definition}
+The Laplace Transform comes in pairs, of course, but this time we only have the one form to contend with.
+
+Suppose we have an arbitrary function $f: (0,\infty) \longrightarrow \mathbb{R}$. We normally set $p>0$.
+
+\textbf{Forward Transform}
+\begin{equation*}
+    \mathcal{L}_f (p) = \int_{0}^{\infty} f(t) e^{-pt} dt
+\end{equation*}
+
+\textbf{Inverse Transform}
+\begin{equation*}
+    f(t) = \frac{1}{2 \pi i} \int_{\gamma - i\infty}^{\gamma + i\infty} \mathcal{L}_f (p) e^{pt} dp
+\end{equation*}
+With some abuse of notation in the limits of integration.
+
+\newpage
+
+\section*{3. Properties}
+The Laplace Transform has some useful properties that can be exploited.
+
+\subsection*{3.1. Linearity}
+Let $\lambda, \mu \in \mathbb{R}$. Then,
+\begin{equation}
+    \mathcal{L}_{\lambda f+\mu g} (p) = \lambda \mathcal{L}_{f} (p) + \mu \mathcal{L}_{g} (p).
+\end{equation}
+
+\subsection*{3.2. Scaling}
+Let $\alpha \in \mathbb{R}^{+}$, and suppose we have $g(t) = f(\alpha t)$. Then, 
+\begin{equation}
+    \mathcal{L}_g (p) = \frac{1}{\alpha} \mathcal{L}_f \left(\frac{p}{\alpha}\right).
+\end{equation}
+
+\subsection*{3.3. Translation}
+Let $\mu \in \mathbb{R}$, and suppose we have $g(t) = e^{\mu t} f(t)$. Then, 
+\begin{equation}
+    \mathcal{L}_g (p) = \mathcal{L}_f(p - \mu).
+\end{equation}
+
+\subsection*{3.4. Derivatives}
+Let $f'(t)$ denote the derivative. Then, 
+\begin{equation}
+    \mathcal{L}_{f'} (p) = p \mathcal{L}_f(p) - f(0).
+\end{equation}
+
+\subsection*{3.5. Integrals}
+Let $F(t) = \int_{0}^{t} f(\tau) d\tau$. Then,
+\begin{equation}
+    \mathcal{L}_{F} (p) = \frac{1}{p} \mathcal{L}_f(p).
+\end{equation}
+
+\subsection*{3.6. Convolution}
+Define the convolution of $f(t)$ and $g(t)$ as $f \star g$. Then,
+\begin{equation}
+    \mathcal{L}_{f \star g} (p) = \mathcal{L}_{f} (p) \mathcal{L}_{g} (p).
+\end{equation}
+I will leave the proofs as an exercise for the reader.
+
+\newpage
+
+\section*{4. Examples}
+Firstly, let's present some commonly found Laplace Transform pairs.
+\begin{table}[h]
+\begin{center}
+    \begin{tabularx}{0.9\textwidth}{
+    >{\centering\arraybackslash}X
+    >{\centering\arraybackslash}X
+    >{\centering\arraybackslash}X
+    >{\centering\arraybackslash}X
+    >{\centering\arraybackslash}X
+    >{\centering\arraybackslash}X
+    >{\centering\arraybackslash}X
+    >{\centering\arraybackslash}X}
+    \hline
+    \multicolumn{8}{c}{\textbf{Laplace Transform Pairs}} \\[4pt]
+    \hline 
+    $f(t)$  & 1 & $t$ & $t^n$ & $e^{\alpha t}$ & $e^{i \alpha t}$ & $\cos(\alpha t) $& $\sin(\alpha t)$ \\[4pt]
+    \hline 
+    $\mathcal{L}_f (p)$ & $\frac{1}{p}$ & $\frac{1}{p^2}$ & $\frac{n!}{p^{n+1}}$ & $\frac{1}{p-\alpha}$ & $\frac{1}{p-i\alpha}$ & $\frac{p}{p^2 + \alpha^2}$ & $\frac{\alpha}{p^2 + \alpha^2}$ \\[4pt]
+    \hline
+    \end{tabularx}
+\end{center}
+\caption{Table containing commonly found Laplace Transform pairs.}
+\end{table}
+
+
+\vspace{0.4cm}
+We finish by considering some examples.
+
+\textbf{4.1. Example:} Compute the inverse Laplace Transform, given that $\mathcal{L}_f (p) = \frac{p+8}{p^2 + 4p + 5}$.
+
+We can rearrange the form our our Laplace Transform,
+\begin{align*}
+    \mathcal{L}_f (p) &= \frac{p+8}{p^2 +4p +5} \\
+    &= \frac{(p+2) + 6}{(p+2)^2 + 1} \\
+    & = \frac{(p+2)}{(p+2)^2 +1} + \frac{6}{(p+2)^2 + 1}
+\end{align*}
+Now we can use a combination of Property 3.3 Translation and our table of Laplace Transforms to compute the inverse by inspection,
+\begin{align*}
+    f(t) &= e^{-2t}\cos t + 6e^{-2t} \sin t \\
+    &= e^{-2t} (\cos t + 6\sin t).
+\end{align*}
+
+\textbf{4.1. Example:} Use Laplace Transforms to find the solution to the following second order ordinary differetial equation,
+\begin{equation*}
+    \frac{d^2f}{dt^2} - 3\frac{df}{dt} + 2f = 4e^{2t}.
+\end{equation*}
+
+We first multiply through by our Laplace factor $e^{-pt}$ and integrate to obtain the ODE in terms of Laplace Transforms,
+\begin{equation*}
+    \mathcal{L}_{f''} (p) - 3 \mathcal{L}_{f'} (p) + 2 \mathcal{L}_f (p) = \frac{4}{p-2}.
+\end{equation*}
+
+Using Property 3.4 Derivatives not once but twice we find,
+\begin{equation*}
+    \mathcal{L}_{f'} (p) = p \mathcal{L}_{f} (p) - f(0) = p \mathcal{L}_{f} (p) - 3
+\end{equation*}
+and,
+\begin{align*}
+    \mathcal{L}_{f''} (p) &= p \mathcal{L}_{f'} (p) - f'(0) \\
+    &= p \left( p \mathcal{L}_{f} (p) - 3 \right) - 5 \\
+    &= p^2 \mathcal{L}_f (p) -3p +5. 
+\end{align*}
+
+Putting this all together, we can write our ODE as,
+\begin{equation*}
+    (p^2 -3p + 2) \mathcal{L}_f (p) = \frac{4}{p-2} + 3p - 4.
+\end{equation*}
+
+Which we can rewrite using $(p^2 -3p + 2) = (p-2)(p-1)$, to give
+\begin{equation*}
+     \mathcal{L}_f (p) = \frac{4}{(p-1)(p-2)^2} + \frac{2}{p-2} + \frac{1}{p-1}.
+\end{equation*}
+
+We can invert the latter two fractions in the above equation by inspection. We can also see that the first term on the right hand side is really the product of two. This means we can use the Property 3.6 Convolution to produce the inverse of this product.
+
+Note that we are computing the convolution of $e^t$ and $te^{2t}$. Hence, our function is,
+\begin{equation*}
+    f(t) = 4 \int_0^t se^{2s} e^{t-s} ds + 2e^{2t} + e^t.
+\end{equation*}
+
+We can solve the integral by parts,
+
+\begin{align*}
+    \int_0^t se^{2s} e^{t-s} ds &= \int_0^t se^{t+s} ds \\
+    &= e^t se^s \bigg|_0^t - e^t \int_0^t e^s ds \\
+    &= te^{2t} - e^{2t} + e^t. 
+\end{align*}
+Hence, we arrive at the solution to our ODE,
+\begin{equation*}
+    f(t) = 4te^{2t} - 2e^{2t} + 5e^t + C. 
+\end{equation*}
+\end{document}

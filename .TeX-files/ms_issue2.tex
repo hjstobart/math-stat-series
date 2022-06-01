@@ -1,0 +1,92 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.2in]{geometry} 
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{accents}
+\usepackage{parskip}
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+
+\begin{document}
+
+\lhead{Mr. \textsc{H. Stobart}} 
+\rhead{\textsc{Math/Stat Series \\ Issue 2, Feb-22}}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+\begin{tcolorbox}
+\begin{center}
+    \large
+    \textsc{Solving Ordinary Differential Equations Using \\ An Integrating Factor}
+\end{center}
+\end{tcolorbox}
+
+\begin{center}
+\textbf{Note:} \textit{This work is intended for informative and educational purposes only.}
+\end{center}
+
+\section*{1. Introduction}
+Last month we looked at one approach for solving ODES. In this month's issue, we continue in the same vein and consider how to solve one-dimensional ODE's using the integrating factor technique. This method has far reaching applications in fields such as Physics, Chemistry, Biology, and Finance.
+
+\section*{2. Setup}
+Suppose we seek the function $y(x) := y: \mathbb{R} \longrightarrow \mathbb{R}$, that satisfies the following ODE,
+\begin{equation}
+    \frac{dy}{dx} + g(x)y = h(x).
+\end{equation}
+Where $g(x)$ and $h(x)$ are arbitrary functions of $x$ only. Then we can use the integrating factor technique to solve the ODE. 
+
+\section*{3. Method}
+To solve this equation we will make use of the product rule from ordinary calculus. Before doing so, however, let us introduce a new term,
+\begin{equation}
+    e^{G(x)} := e^{\int g(x) dx}.
+\end{equation}
+Clearly, $g(x) = G'(x)$. This term is called the \textbf{Integrating Factor}.
+
+By introducing this term we are able to take advantage of the results from differentiating exponential functions. Now, let us multiply our ODE (1) by this new term.
+\begin{equation}
+    e^{G(x)} \frac{dy}{dx} + g(x) e^{G(x)} y = h(x) e^{G(x)}.
+\end{equation}
+Examining the first two terms of this equation, we can see that this is precisely the product rule applied to the function $ye^{G(x)}$. That was lucky!
+Let's rewrite this equation once more,
+\begin{equation}
+    \frac{d}{dx} \left[ ye^{G(x)} \right] = h(x)e^{G(x)}.
+\end{equation}
+This looks much more familiar. Let's integrate both sides.
+\begin{equation}
+    \int \frac{d}{dx} \left[ ye^{G(x)} \right] dx = \int h(x)e^{G(x)}.
+\end{equation}
+But we know that an integral and a derivative `cancel out', so finally we have,
+\begin{equation}
+    y(x) = e^{-G(x)} \int h(x)e^{G(x)}.
+\end{equation}
+
+\section*{4. Example}
+Let's consider a specific example. Find the general solution of the following ODE,
+\begin{equation}
+    \frac{dy}{dx} + 3x^2 y = e^{-x^3}.
+\end{equation}
+Let's start by working out the integrating factor,
+\begin{equation}
+    e^{\int 3x^2 dx} = e^{x^3}.
+\end{equation}
+So, multiplying through our ODE becomes,
+\begin{equation}
+    e^{x^3} \frac{dy}{dx} + 3x^2 e^{x^3} y = 1.
+\end{equation}
+Which we can manipulate using the product rule,
+\begin{equation}
+    \int \frac{d}{dx} \left[ e^{x^3} y \right] dx = \int 1 dx.
+\end{equation}
+Which becomes,
+\begin{equation}
+    e^{x^3} y + c_1 = x + c_2.
+\end{equation}
+And finally, we have our solution,
+\begin{equation}
+    y = \frac{x + C}{e^{x^3}}.
+\end{equation}
+    
+\end{document}

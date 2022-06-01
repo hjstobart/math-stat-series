@@ -1,0 +1,175 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.2in]{geometry} 
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{accents}
+\usepackage{parskip}
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+
+\begin{document}
+
+\lhead{Mr. \textsc{H. Stobart}} 
+\rhead{\textsc{Math/Stat Series \\ Issue 4, Apr-22}}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+\begin{tcolorbox}
+\begin{center}
+    \large
+    \textsc{Fourier Transforms: \\ Introduction, Properties, and Examples}
+\end{center}
+\end{tcolorbox}
+
+\begin{center}
+\textbf{Note:} \textit{This work is intended for informative and educational purposes only.}
+\end{center}
+
+\section*{1. Introduction}
+In last month's issue we explored Taylor series expansions and saw how some familiar functions can be written in terms of an infinite sum. In this issue I want to move back towards methods, rather than results, and introduce another extremely versatile and useful method in applied mathematics: the Fourier Transform. 
+
+As the name suggests, the Fourier Transform is a technique that transforms functions, equations, differential equations, and more into an alternative form––by which we mean that instead of working in one variable, we move and work in a different (but related) variable instead. Of course, the purpose of transforming whatever we had initially is to make things easier, if by transforming we make things more difficult for ourselves then we haven't achieved anything!
+
+\section*{2. Definition}
+As one would expect, the Fourier Transform actually comes in pairs, if we are transforming from one space to another, we need some way of transforming back. This gives us the forward transform, and the inverse transform.
+
+Unfortunately, there are multiple ways of defining the forward and inverse transforms, that is, they are not universal. Depending on your background, whether an engineer, computer scientist, mathematician, or physicist, you will likely have seen slightly different versions. Whilst all equivalent, and leading to the correct solution, it is \textbf{imperative} that you have a clear understanding of the form being used so as not to arrive at an incorrect answer. 
+
+Suppose we have an arbitrary function $f(x)$.
+\begin{center}
+    \subsection*{Version 1}
+\end{center}
+\begin{minipage}{0.49\textwidth}
+    \begin{center}
+    \subsubsection*{Forward Transform}
+        \begin{equation*}
+            \hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{i \xi x} dx
+        \end{equation*}
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+    \begin{center}
+    \subsubsection*{Inverse Transform}
+        \begin{equation*}
+            f(x) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} \hat{f}(\xi) e^{-i \xi x} d\xi
+        \end{equation*}
+    \end{center}
+\end{minipage}
+
+\begin{center}
+    \subsection*{Version 2}
+\end{center}
+\begin{minipage}{0.49\textwidth}
+    \begin{center}
+    \subsubsection*{Forward Transform}
+        \begin{equation*}
+            \hat{f}(\xi) = \frac{1}{\sqrt{2 \pi}}\int_{-\infty}^{\infty} f(x) e^{i \xi x} dx
+        \end{equation*}
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+    \begin{center}
+    \subsubsection*{Inverse Transform}
+        \begin{equation*}
+            f(x) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} \hat{f}(\xi) e^{-i \xi x} d\xi
+        \end{equation*}
+    \end{center}
+\end{minipage}
+
+\begin{center}
+    \subsection*{Version 3}
+\end{center}
+\begin{minipage}{0.49\textwidth}
+    \begin{center}
+    \subsubsection*{Forward Transform}
+        \begin{equation*}
+            \hat{f}(\nu) = \int_{-\infty}^{\infty} f(x) e^{2\pi i \nu x} dx
+        \end{equation*}
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+    \begin{center}
+    \subsubsection*{Inverse Transform}
+        \begin{equation*}
+            f(x) = \int_{-\infty}^{\infty} \hat{f}(\nu) e^{-2 \pi i \nu x} d\nu
+        \end{equation*}
+    \end{center}
+\end{minipage}
+
+In addition, we can swap the signs in the exponential term between the forward and inverse transforms giving a frustratingly large number of combinations. Personally, I prefer working with Version 1, but for those that have come across the \textit{Fast Fourier Transform} algorithm before, then perhaps Version 3 will seem most familiar.
+
+We can also write the Fourier Transform using operator notation when we wish to use shorthand, especially when the $\hat{.}$ becomes large. 
+
+\section*{3. Properties}
+The Fourier Transform has some useful properties that make it so well liked.
+
+\subsection*{3.1. Scaling}
+Let $\alpha \in \mathbb{R}^{+}$, and suppose we have $g(x) = f(\alpha x)$, then
+\begin{equation}
+    \hat{g}(\xi) = \frac{1}{\alpha} \hat{f}\left(\frac{\xi}{\alpha}\right).
+\end{equation}
+
+\subsection*{3.2. Translation}
+Let $\mu \in \mathbb{R}$, and suppose we have $g(x) = e^{i \mu x} f(x)$, then
+\begin{equation}
+    \hat{g}(\xi) = \hat{f}(\xi + \mu).
+\end{equation}
+
+\subsection*{3.3. $n^{th}$ Power}
+\begin{equation}
+    \mathcal{F}_{x \rightarrow \xi}[x^n f(x)] = \int_{-\infty}^{\infty} x^n f(x) e^{i \xi x} dx = i^n \frac{d^n \hat{f}(\xi)}{d\xi^n}.
+\end{equation}
+
+\subsection*{3.4. Derivatives}
+\begin{equation}
+    \mathcal{F}_{x \rightarrow \xi}\left[\frac{d^n f(x)}{dx^n}\right] = \int_{-\infty}^{\infty} \frac{d^n f(x)}{dx^n} e^{i \xi x} dx = (i \xi)^n \hat{f}(\xi).
+\end{equation}
+
+\subsection*{3.5. Convolution}
+Define the convolution of $f(x)$ and $g(x)$ as $f \star g$.
+\begin{equation}
+    \mathcal{F}_{x \rightarrow \xi}[f \star g] = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x - y) g(y) e^{i \xi x} dy dx = \hat{f}(\xi) \hat{g}(\xi)  
+\end{equation}
+The proofs are left as simple exercises for the interested reader. Property 3.5. may prove trickier than the rest, however, recall the definition of the convolution and the result can be achieved. 
+
+\newpage
+
+\section*{4. Examples}
+We finish by considering some examples.
+
+\textbf{4.1. Example:} Compute the Fourier Transform of $f(x) = K e^{-\mu |x|}$.
+
+\begin{align*}
+    \hat{f}(\xi) &= \int_{-\infty}^{\infty} K e^{-\mu |x|} e^{i \xi x} dx \\
+    &= K \int_{-\infty}^{0} e^{\mu x} e^{i \xi x} dx + K \int_{0}^{\infty} e^{-\mu x} e^{i \xi x} dx \\
+    &= K \int_{-\infty}^{0} e^{(\mu + i\xi) x} dx + K \int_{0}^{\infty} e^{(i\xi - \mu) x} dx \\
+    &= K \left[ \frac{e^{(\mu + i\xi) x}}{(\mu + i\xi)} \right]_{-\infty}^{0} + K \left[ \frac{e^{(i\xi - \mu) x}}{(i\xi - \mu)} \right]_{0}^{\infty} \\
+    &= \frac{K}{(\mu + i\xi)} - \frac{K}{(i\xi - \mu)} \\
+    &= \frac{2K\mu}{\mu^2 + \xi^2}.
+\end{align*}
+
+\textbf{4.2. Example:} Compute the Fourier Transform of:
+\begin{equation*}
+f(x) = 
+\begin{cases} 
+      1 & |x|\leq a \\
+      0 & otherwise.
+   \end{cases}
+\end{equation*}
+
+\begin{align*}
+    \hat{f}(\xi) &= \int_{-\infty}^{\infty} f(x) e^{i \xi x} dx \\
+    &= \int_{-a}^{a} e^{i \xi x} dx \\
+    &= \left[ \frac{1}{i\xi} e^{i \xi x} \right]_{-a}^{a} \\
+    &= \frac{1}{i\xi} e^{i \xi a} - \frac{1}{i\xi} e^{-i \xi a} \\
+    &= \frac{2}{\xi} \left( \frac{e^{i (\xi a)} - e^{-i (\xi a)}}{2i} \right) \\
+    &= \frac{2sin(a\xi)}{\xi}.
+\end{align*}
+Where we have used the following result in the last step,
+\begin{equation*}
+    sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}.
+\end{equation*}
+\end{document}

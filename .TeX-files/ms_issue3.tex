@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.2in]{geometry} 
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{accents}
+\usepackage{parskip}
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+
+\begin{document}
+
+\lhead{Mr. \textsc{H. Stobart}} 
+\rhead{\textsc{Math/Stat Series \\ Issue 3, Mar-22}}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+\begin{tcolorbox}
+\begin{center}
+    \large
+    \textsc{Taylor Series Expansions: \\ What? Why? And Some Examples}
+\end{center}
+\end{tcolorbox}
+
+\begin{center}
+\textbf{Note:} \textit{This work is intended for informative and educational purposes only.}
+\end{center}
+
+\section*{1. Introduction}
+Mathematics is full of unexpected and beautiful results, and perhaps none illustrates that more than Euler's identity:
+\begin{equation*}
+    e^{i \pi} + 1 = 0.
+\end{equation*}
+Of course, I use the word `unexpected' in a linguistic sense, because the great thing about maths is that everything is logical. Results build upon previous results and rely on rigorous proofs. So in a way everything is expected, provided the correct steps are taken.
+
+There are plenty more examples of beautiful results, and in this issue I want to examine one of them: Taylor series. But before we dive into the details, let me pose a task, I will give you a value, say $x = 1$, and I want you to give me the value of $\sin (x)$ without a calculator. How would you go about that? 
+
+``Well that's ridiculous, there's no way I can provide the exact answer," you might say. Okay, how about a good approximate value then? This is the point at which a Taylor series expansion becomes an incredible tool.
+
+\section*{2. What are they?}
+A Taylor series expansion is simply an infinite sum of terms that can be used to compute the value of a function at a certain point. The terms of the infinite sum are expressed as powers and derivatives. 
+
+Let's take a look at the mathematical formula:
+\begin{equation}
+    \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x-a)^n.
+\end{equation}
+Where we define $f^{(n)}(a)$ as the $n^{th}$ derivative evaluated at the point $a$. In its expanded form this becomes:
+\begin{equation}
+    f(a) + \frac{f'(a)}{1!} (x-a) + \frac{f''(a)}{2!} (x-a)^2 + \frac{f^{(3)}(a)}{3!} (x-a)^3 + \ldots
+\end{equation}
+
+\section*{3. Why do I need them?}
+Aside from being a rather impressive result, introduced by Taylor in 1715, this representation of an arbitrary function as series has far reaching consequences. It means that we can approximate \textit{any} function (provided it can be differentiated of course) and compute values.
+
+In simple circumstances such approximations aren't necessary as we likely have an exact solution of the function, but as things become more complicated taking the first two, three, or four terms of this series can provide an answer that we deem to be within tolerance. Physicists, chemists, biologists, medical researchers, engineers, economists, and finance professionals all rely on this technique.
+
+\section*{4. Examples}
+Let's take a look at some well-known functions and their Taylor series expansions. The following will converge for any value of $x$.
+\begin{align}
+    e^x &= \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \ldots \\
+    \sin (x) &= \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \ldots \\
+    \cos (x) &= \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \ldots \\
+    \sinh (x) &= \sum_{n=0}^{\infty} \frac{x^{2n+1}}{(2n+1)!} = x + \frac{x^3}{3!} + \frac{x^5}{5!} + \ldots \\
+    \cosh (x) &= \sum_{n=0}^{\infty} \frac{x^{2n}}{(2n)!} = 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \ldots \\
+\end{align}
+However, some series only converge for certain values $x$, for instance if $|x| < 1$.
+\begin{align}
+    \frac{1}{1-x} &= \sum_{n=0}^{\infty} x^n = 1 + x + x^2 + x^3 + x^4 + \ldots \\
+    \ln (1+x) &= \sum_{n=0}^{\infty} \frac{(-1)^n x^{n+1}}{(n+1)} = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \ldots 
+\end{align}
+
+\end{document}
