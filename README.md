@@ -2,7 +2,7 @@
 <img src="images/Header1.png" style="width:1275px;height:35px">
 </td>
 
-## Mathematics & Statistics Series
+# Mathematics & Statistics Series
 
 Want to learn more about mathematics and statistics topics? Already studied them in the past but simply forgotten? Well this series is here to help!
 
@@ -21,11 +21,47 @@ The second reason is that in reminding myself I hope this series will also help 
   <tbody>
 
   <tr class="odd">
-  <td align="center" valign="center"> <b>May 2022<b> <br>
+  <td align="center" valign="center">
   <img src="images/Simple.png" style="width:2.13889in;height:1.55726in" /></td>
   <td align="left" valign="center"><ul>
-  <b>Math/Stat Series, Issue 1<b> <br>
-  <a href="https://github.com/hjstobart/Math-Stat-Series/blob/main/Math-Stat%20Issue%201.pdf">Solving Ordinary Differential Equations using Separation of Variables</a>
+  <b>Issue 5, May 2022<b> <br>
+  <a href="https://github.com/hjstobart/math-stat-series/blob/main/ms_issue5.pdf">Laplace Transforms: Introduction, Properties, and Examples</a>
+  </ul></td>
+  </tr>
+    
+  <tr class="odd">
+  <td align="center" valign="center"> 
+  <img src="images/Simple.png" style="width:2.13889in;height:1.55726in" /></td>
+  <td align="left" valign="center"><ul>
+  <b>Issue 4, April 2022<b> <br>
+  <a href="https://github.com/hjstobart/math-stat-series/blob/main/ms_issue4.pdf">Fourier Transforms: Introduction, Properties, and Examples</a>
+  </ul></td>
+  </tr>
+    
+  <tr class="odd">
+  <td align="center" valign="center">
+  <img src="images/Simple.png" style="width:2.13889in;height:1.55726in" /></td>
+  <td align="left" valign="center"><ul>
+  <b>Issue 3, March 2022<b> <br>
+  <a href="https://github.com/hjstobart/math-stat-series/blob/main/ms_issue3.pdf">Taylor Series Expansion: What? Why? And Some Examples</a>
+  </ul></td>
+  </tr>
+   
+  <tr class="odd">
+  <td align="center" valign="center">
+  <img src="images/Simple.png" style="width:2.13889in;height:1.55726in" /></td>
+  <td align="left" valign="center"><ul>
+  <b>Issue 2, February 2022<b> <br>
+  <a href="https://github.com/hjstobart/math-stat-series/blob/main/ms_issue2.pdf">Solving Ordinary Differential Equations using an Integrating Factor</a>
+  </ul></td>
+  </tr>  
+  
+  <tr class="odd">
+  <td align="center" valign="center">
+  <img src="images/Simple.png" style="width:2.13889in;height:1.55726in" /></td>
+  <td align="left" valign="center"><ul>
+  <b>Issue 1, January 2022<b> <br>
+  <a href="https://github.com/hjstobart/math-stat-series/blob/main/ms_issue1.pdf">Solving Ordinary Differential Equations using Separation of Variables</a>
   </ul></td>
   </tr>
 
