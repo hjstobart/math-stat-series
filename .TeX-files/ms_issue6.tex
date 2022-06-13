@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.2in]{geometry} 
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{accents}
+\usepackage{parskip}
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+
+\begin{document}
+
+\lhead{Mr. \textsc{H. Stobart}} 
+\rhead{\textsc{Math/Stat Series \\ Issue 6, Jun-22}}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+\begin{tcolorbox}
+\begin{center}
+    \large
+    \textsc{Partial Differential Equations \\ An Introduction to the Method of Characteristics}
+\end{center}
+\end{tcolorbox}
+
+\begin{center}
+\textbf{Note:} \textit{This work is intended for informative and educational purposes only.}
+\end{center}
+
+\section*{1. Introduction}
+In previous issues so far we have only considered Ordinary Differential Equations, by which we mean differential equations where the function we are seeking to find is only dependent on one variable, say $f(x)$. Differential equations can be extended to the broader topic of functions of more than one variable, so called multivariable calculus. In this case, we are no longer working with ordinary differential equations, but \textbf{Partial Differential Equations} instead. 
+
+The analysis of partial differential equations is enormous with active research in the area present at most major universities. There are some famous PDEs that form the basis of almost any course on the subject, such as the one-dimensional heat/diffusion equation and the wave equation––both of which will be covered in the next two issues respectively. In this issue, however, I want to examine a more general method for solving PDEs: The Method of Characteristics.
+
+\section*{2. Setup}
+Let's keep things simple to begin with. Suppose we have a general first order PDE, with constant coefficients.
+\begin{equation}
+    a \frac{\partial u}{\partial t} + b \frac{\partial u}{\partial x} = 0.
+\end{equation}
+We assume that $a,b \neq 0$ otherwise (1) would simply reduce to an ODE. 
+
+Instead of having two coefficients we can combine them by dividing through, this will make the explanation clearer and easier to understand.
+\begin{equation}
+    \frac{\partial u}{\partial t} + c \frac{\partial u}{\partial x} = 0.
+\end{equation}
+Where $c = b/a$.
+
+\newpage
+
+\section*{3. Method}
+The method relies on the chain rule. Suppose $x = x(s)$ and $t = t(s)$, which describe different curves (depending on the value of $s$) in the $(x,t)$ plane. 
+
+We have, from the chain rule, that
+\begin{equation}
+    \frac{du}{ds} = \frac{dt}{ds} \frac{\partial u}{\partial t} + \frac{dx}{ds} \frac{\partial u}{\partial x}.
+\end{equation}
+
+By matching up the coefficients of (1) to their respective derivatives in the chain rule we obtain a series of \textit{ordinary differential equations}.
+\begin{align}
+    \frac{dt}{ds} &= 1 \\
+    \frac{dx}{ds} &= c \\
+    \frac{du}{ds} &= \frac{\partial u}{\partial t} + c \frac{\partial u}{\partial x} = 0.
+\end{align}
+
+Then solving each of these equations we obtain,
+\begin{align}
+    t(s) &= s + const \\
+    x(s) &= cs + const \\
+    u(s) &= const.
+\end{align}
+
+Remember, we don't want the solution in terms of $s$, so we must eliminate. By doing so we find that,
+\begin{equation}
+    x = ct + \xi, \hspace{1cm} \xi \in \mathbb{R}.
+\end{equation}
+
+Let's introduce an initial condition, $ u(x,0) = f(x)$. Then since $x=\xi$, at $t=0$, we have that $u(x,0) = f(\xi)$ at $t=0$. Which means that our function $u(x,t)$ will always be equal to $f(\xi) = f(x-ct)$ along the \textit{characteristic curves}. 
+
+\section*{4. Example}
+Let's examine a more complicated example to get a good understanding of how the method works. Take the following first order linear PDE with non-constant coefficients.
+\begin{equation}
+    \frac{\partial u}{\partial t} + x \frac{\partial u}{\partial x} = \sin t.
+\end{equation}
+With the initial condition,
+\begin{equation}
+    u(x,0) = f(x).
+\end{equation}
+
+As before, by the chain rule we have,
+\begin{equation}
+    \frac{du}{ds} = \frac{dt}{ds} \frac{\partial u}{\partial t} + \frac{dx}{ds} \frac{\partial u}{\partial x} = \sin t.
+\end{equation}
+
+Equating the coefficients, we obtain a series of ODEs to be solved.
+\begin{align}
+    \frac{dt}{ds} &= 1 \\
+    \frac{dx}{ds} &= x \\
+    \frac{du}{ds} &= \frac{\partial u}{\partial t} + c \frac{\partial u}{\partial x} = \sin t.
+\end{align}
+
+We impose the following, $x= \xi$ and $s=0$ at $t=0$. Hence, we have the following solutions,
+\begin{align}
+    t(s) &= s \\
+    x(s) &= \xi e^s \\
+    \frac{du}{ds} &= \sin t \\
+    \implies \frac{du}{ds} &= \sin s \\
+    \implies u(s) &= -\cos s + C(\xi).
+\end{align}
+In this case, the constant $C = C(\xi)$ depends on the value of $\xi$.
+
+Now, since $x = \xi$ at $t=0$, we must have that $u(\xi,0) = f(\xi)$ at $s=0$, hence, our solution is given by,
+\begin{equation}
+    u(\xi,s) = 1 - \cos s + f(\xi). 
+\end{equation}
+
+But of course, we don't want the solution in terms of $\xi$ and $s$, so with some rearranging of expressions (17) and (18), we find,
+\begin{equation}
+    u(x,t) = 1 - \cos t + f(xe^{-t}).
+\end{equation}
+
+\section*{5. Discussion}
+Personally, I tend to find online resources such as web pages, online lecture notes from major universities, and videos to be the best for the Method of Characteristics. Specific books on Partial Differential Equations tend not to cover the topic, and instead focus on more complicated methods for solving second order PDEs, for which an analytical solution may or may not exist. 
+
+If for some reason you are adamant about using books, however, I recommend looking for those that relate to queues, and queuing theory in general, as they are the most likely to contain methods geared towards first order problems. 
+
+\end{document}
