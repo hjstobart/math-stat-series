@@ -1,0 +1,161 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.2in]{geometry} 
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{accents}
+\usepackage{parskip}
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+
+\begin{document}
+
+\lhead{Mr. \textsc{H. Stobart}} 
+\rhead{\textsc{Math/Stat Series \\ Issue 7, Jul-22}}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+\begin{tcolorbox}
+\begin{center}
+    \large
+    \textsc{Partial Differential Equations \\ Solving the 1D Heat Equation}
+\end{center}
+\end{tcolorbox}
+
+\begin{center}
+\textbf{Note:} \textit{This work is intended for informative and educational purposes only.}
+\end{center}
+
+\section*{1. Introduction}
+In last month's issue we saw a general method for solving Partial Differential Equations in the Method of Characteristics. This is primarily used for solving first order PDEs, whilst other methods such as Fourier or Laplace transforms, among others, are reserved for equations of second order. In this issue I want to focus on solving one of the most frequently covered PDEs: the one-dimensional heat equation (otherwise referred to as the Diffusion equation). 
+
+\section*{2. The Setup}
+The general form of the heat/diffusion equation is given by the following PDE.
+\begin{equation}
+    \frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2}.
+\end{equation}
+Where $D>0$ is some constant. 
+
+In addition, to truly solve the problem we need both \textbf{Initial} and \textbf{Boundary Conditions}. These will largely be dependent on the situation of the problem. For instance, the B.Cs and I.Cs are likely to be quite different depending on whether you are working in Physics, Chemistry, or Finance (see my Quantitative Finance Issue 5 to understand how the famous Black-Scholes equation reduces to the 1D heat/diffusion equation). 
+
+\section*{3. General Solution on a Finite Domain}
+We begin by considering the heat/diffusion equation on a finite domain. That is, we are considering some region between, say, 0 and $a$. Think of a one-dimensional rod of length $a$.
+
+Let us suppose our solution to the equation is of the form, $u(x,t) = X(x)T(t)$, i.e. a separable solution. Then proceeding in a similar manner to that of Ordinary Differential Equations, we find,
+\begin{equation}
+    \frac{T'(t)}{DT(t)} = \frac{X''(x)}{X(x)} = k.
+\end{equation}
+Where, $k$ is some constant. This follows as the left hand side is a function of $t$ only, while the right hand side is a function of $x$ only––the only way this is possible if they are both equal to some constant. We are now left with two \textit{Ordinary Differential Equations}.
+
+\newpage
+
+\subsection*{3.1 ODE for T(t)}
+The ODE for $T(t)$ is particularly easy to solve. We have,
+\begin{equation}
+    T'(t) - kDT(t) = 0. 
+\end{equation}
+
+Immediately we can see the solution is,
+\begin{equation}
+    T(t) = Ce^{kDt}.
+\end{equation}
+For some arbitrary constant $C$.
+
+\subsection*{3.2 ODE for X(x)}
+
+\textbf{Boundary Conditions:} \\
+Let's first consider the boundary conditions. Suppose we have the following, for all $t$.
+\begin{align}
+    u(0,t) &= 0, \\ 
+    u(a,t) &= 0.
+\end{align}
+
+We can clearly translate this into boundary conditions for our ODE in $x$.
+\begin{align}
+    X(0) &= 0, \\
+    X(a) &= 0.
+\end{align}
+
+So we can consider the full problem. Solve the ODE given by,
+\begin{equation}
+    X''(x) - k X(x) = 0,
+\end{equation}
+subject to the boundary conditions given by (7) and (8).
+
+Of course, we are looking for non-trivial solutions. It turns out that values of $k\geq 0$ will only give us $X(x) = 0$. So we must take $k<0$. Let's rewrite this as $k = -\mu^2$ to be clear. Then our solution to (7) is given by,
+\begin{equation}
+    X(x) = B \sin (\mu x).
+\end{equation}
+
+Hence, with the boundary conditions, we know $\sin 0 = 0$, but what about at $x=a$. Well,
+\begin{align}
+    \sin (\mu a) &= 0 \\ 
+    \implies \mu &= \frac{n \pi}{a}, \hspace{0.5cm} n \in \mathbb{Z} \\
+    \implies k &= -\frac{n^2 \pi^2}{a^2}, \hspace{0.5cm} n = 1,2,3, \ldots
+\end{align}
+
+\newpage
+
+\subsection*{3.3 Combining to form u(x,t)}
+
+Recall, we sought a general solution of the form $u(x,t) = X(x)T(t)$. By finding the separate terms we can combine them to find our solution.
+\begin{equation}
+    u(x,t) = a_n e^{-\frac{n^2 \pi^2 Dt}{a^2}} \sin \left( \frac{n \pi x}{a} \right).
+\end{equation}
+Where $a_n$ is the constant associated with solution $n$.
+
+What's interesting to note is that we have infinitely many solutions. However, since they all satisfy the PDE and boundary conditions stated, we can use the principle of superposition to sum up `an amount' of each solution to form the most general solution,
+\begin{equation}
+    u(x,t) = \sum_{n=1}^{\infty} a_n e^{-\frac{n^2 \pi^2 Dt}{a^2}} \sin \left( \frac{n \pi x}{a} \right).
+\end{equation}
+
+At this point we would require more information given by the \textbf{Initial Condition(s)} to properly determine the value of $a_n$, I will omit further working as it would result in a specific solution, which is not the point of this issue.
+
+\section*{4. General Solution on an Infinite Domain}
+The setup of the one-dimensional heat/diffusion equation is more or less the same as for the finite case, except the \textbf{boundary conditions} disappear (since there is no boundary!) and the \textbf{initial conditions} play a far more important role. 
+
+Now we have,
+\begin{equation}
+    \frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2}.
+\end{equation}
+Where $D>0$ is some constant. But this time $ -\infty < x < \infty$. The initial condition is given by,
+\begin{equation}
+    u(x,0) = \phi(x).
+\end{equation}
+
+This time we will use the Fourier Transform to solve our equation. Taking the Fourier Transform of both sides of (16) and using the associated properties, we obtain,
+\begin{align}
+    \int_{-\infty}^{\infty} \frac{\partial u}{\partial t} e^{-i \xi x} dx &= D \int_{-\infty}^{\infty} \frac{\partial^2 u}{\partial x^2} e^{-i \xi x} dx \\
+    \frac{\partial}{\partial t} \int_{-\infty}^{\infty}  u e^{-i \xi x} dx &= D \int_{-\infty}^{\infty} \frac{\partial^2 u}{\partial x^2} e^{-i \xi x} dx \\
+    \frac{\partial \hat{u}}{\partial t} &= -D \xi^2 \hat{u}.
+\end{align}
+Where $\hat{u}(\xi,t)$ is the Fourier Transform of $u(x,t)$ with respect to $x$. 
+
+\newpage
+
+Perhaps the first thing we notice is that this is no longer a PDE, but a simple ODE in $t$. Which gives the same solution as in section 3.1. Namely,
+\begin{equation}
+        \hat{u}(\xi,t) = Ce^{-\xi^2 Dt}.
+\end{equation}
+Technically speaking $C = C(\xi)$.
+
+Returning to our initial condition, we must first take its Fourier Transform. Then we can simply compute the solution.
+\begin{align}
+    \hat{u}(\xi,0) &= \hat{\phi}(\xi) \\
+    \implies \hat{u}(\xi, t) &= \hat{\phi}(\xi) e^{-\xi^2 Dt}.
+\end{align}
+Great! We've found our solution right? Well, not quite, recall we are still in Fourier Space, and must therefore invert to return to our real space.
+
+I shall first define one further helpful result.
+\begin{equation}
+    \mathcal{F}_{x \rightarrow \xi} \left[ \frac{e^{-x^2/4Dt}}{\sqrt{4 \pi Dt}} \right] = e^{-\xi^2 Dt}.
+\end{equation}
+
+Now we can simply use the convolution theorem find our general solution,
+\begin{align}
+    u(x,t) &= \mathcal{F}_{\xi \rightarrow x}^{-1} \left[ \hat{\phi}(\xi) e^{-\xi^2 Dt} \right] \\
+    &= \frac{1}{\sqrt{4 \pi Dt}} \int_{-\infty}^{\infty} \phi(y) e^{-\frac{(x-y)^2}{4Dt}} dy.
+\end{align}
+\end{document}
