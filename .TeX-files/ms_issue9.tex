@@ -1,0 +1,159 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.2in]{geometry} 
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{accents}
+\usepackage{parskip}
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+
+\begin{document}
+
+\lhead{Mr. \textsc{H. Stobart}} 
+\rhead{\textsc{Math/Stat Series \\ Issue 9, Sep-22}}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+\begin{tcolorbox}
+\begin{center}
+    \large
+    \textsc{Probability Theory: \\ Elementary Results}
+\end{center}
+\end{tcolorbox}
+
+\begin{center}
+\textbf{Note:} \textit{This work is intended for informative and educational purposes only.}
+\end{center}
+
+\section*{1. Introduction}
+The field of Probability Theory is fundamental to the way we live our lives. If you open up the weather app on your phone you might see the phrase \textit{chance of rain}, which is a probability calculated by meteorologists of the chance of it raining within a given time period. Simply put, weather systems are far too complex to know with absolute certainty how things will evolve. 
+
+Probability appears in many other traditional areas too. Gambling is perhaps the most `in your face' example. If you've ever played roulette you'll know there are red numbers, black numbers, and the all important green zero (or if you're reading this in the U.S., there is also the green double zero). These clever additions ensure that there are no strategies that will earn you expected winnings greater than or equal to zero––after all, \textit{the house always wins}.
+
+In this issue I want to build up and present some elementary results from Probability Theory. I would imagine most of you will have covered a large proportion, if not all, of these results before, possibly at school. But as easy as it is to forget them, they are undoubtedly important.
+
+\section*{2. The Basics of Set Theory}
+We begin with a couple of results from Set Theory. When we consider traditional probability examples such as dice rolling and coin flipping we can naturally arrange the outcomes into `sets'. In what follows suppose we have two sets, $A$ and $B$.
+
+\begin{itemize}
+    \item \textbf{Union} ($\cup$) \\
+    The union symbol refers to the elements that are in $A$ \textit{or} $B$.
+    \item \textbf{Intersection} ($\cap$) \\
+    The intersection symbol refers to the elements that are in $A$ \textit{and} $B$.
+    \item \textbf{Empty or Null Set} ($\emptyset$) \\
+    The empty set contains no elements.
+    \item \textbf{Universe or Sample Space} ($\Omega$) \\
+    The universe contains all elements.
+    \item \textbf{Complement} ($^c$ or $'$) \\
+    The complement is the negation of its argument, for instance $A^c$ is all elements not in $A$.
+\end{itemize}
+
+These definitions allow us to introduce some important results known as De Morgan's Laws.
+\begin{align}
+    (A \cup B)^c &= A^c \cap B^c \\
+    (A \cap B)^c &= A^c \cup B^c.
+\end{align}
+    
+\section*{3. The Foundations of Probability Theory}
+We now build up some fundamental concepts to establish Probability Theory.
+
+\subsubsection*{3.1 $\sigma$-Algebra}
+A sigma algebra, denoted $\mathcal{F}$ has the following three properties:
+\begin{enumerate}
+    \item $A \in \mathcal{F} \implies A^c \in \mathcal{F}$;
+    \item $A_1, A_2, \ldots , A_n \in \mathcal{F} \implies \bigcup_{i=1}^{n} A_i \in \mathcal{F}$;
+    \item $A_1, A_2, \ldots \in \mathcal{F} \implies \bigcup_i A_i \in \mathcal{F}$. 
+\end{enumerate}
+
+The difference between points 2 and 3 is that the former states that a \textit{finite} union is an element of the $\sigma$-algebra, while the latter states that a \textit{countably infinite} union is an element of the $\sigma$-algebra. In fact, the first two points are properties of more general Algebra's while the third is specific to $\sigma$-algebra's. A more detailed description of the differences is beyond the scope of this issue.
+
+\subsubsection*{3.2 General Measure}
+Combining a universe $\Omega$ and a $\sigma$-algebra $\mathcal{F}$ we get something called a \textit{measurable space}, denoted ($\Omega$, $\mathcal{F}$). This can be extended to include a general \textit{measure} $\mu : \mathcal{F} \rightarrow \mathbb{R}$ which has the following properties.
+\begin{enumerate}
+    \item \textbf{Non-negativity} \\
+    For all $A \in \mathcal{F}$, we have $\mu(A) \geq 0$;
+    \item \textbf{Null Measure} \\
+    $\mu(\emptyset) = 0$;
+    \item \textbf{Countable Additivity} \\
+    For $A_1, A_2, \ldots \in \mathcal{F}$, with $i \neq j$ such that $\mathbb{P}(A_i \cap A_j) = \emptyset$, we have that \\ $\mu(\sum_{i} A_i) = \sum_{i} \mu(A_i)$. 
+\end{enumerate}
+
+Including the measure into our measurable space, gives us the triple ($\Omega$, $\mathcal{F}$, $\mu$) referred to as a \textit{measure space}.
+
+\newpage
+
+\subsubsection*{3.3 Probability Measure}
+It was Kolmogorov who took the ideas presented in measure theory and devised a the fundamental axioms of probability, which are now affectionately known as Kolmogorov's axioms.
+
+Given a sample space $\Omega$, $\sigma$-algebra $\mathcal{F}$, and probability measure $\mathbb{P}$, we have the triple ($\Omega$, $\mathcal{F}$, $\mathbb{P}$). The axioms are:
+\begin{enumerate}
+    \item \textbf{Non-negativity} \\
+    For all $A \in \mathcal{F}$, we have $\mathbb{P}(A) \geq 0$;
+    \item \textbf{Normalisation} \\
+    $\mathbb{P}(\Omega) = 1$;
+    \item \textbf{Countable Additivity} \\
+    For $A_1, A_2, \ldots \in \mathcal{F}$, with $i \neq j$ such that $\mathbb{P}(A_i \cap A_j) = \emptyset$, we have that \\ $\mathbb{P}(\sum_{i} A_i) = \sum_{i} \mathbb{P}(A_i)$. 
+\end{enumerate}
+
+\section*{4. Elementary Results}
+Now that we have established the basis of Probability Theory we can move on to consider some elementary results. In what follows we will now assume we have two 
+events $A$ and $B$. Where there are elements which have a subscript, this means we are considering multiple events.
+
+\subsubsection*{A Single Event}
+If we have just one event $A$, then naturally it follows that
+\begin{equation}
+    \mathbb{P}(A) + \mathbb{P}(A^c) = \mathbb{P}(\Omega) = 1.
+\end{equation}
+
+\subsubsection*{Disjoint Events}
+If two events are disjoint, then we say that $\mathbb{P}(A \cap B) = \emptyset$. As a result, we have that 
+\begin{equation}
+    \mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B).  
+\end{equation}
+
+\subsubsection*{General Union}
+If two events are not disjoint then we have
+\begin{equation}
+    \mathbb{P}(A \cup B) = \mathbb{P}(A) + \mathbb{P}(B) - \mathbb{P}(A \cap B).
+\end{equation}
+
+\subsubsection*{One Event Given Another}
+We denote $\mathbb{P}(A | B)$ to be the probability of event $A$ happening given that event $B$ has occurred. In this case we have
+\begin{equation}
+    \mathbb{P}(A | B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}.
+\end{equation}
+
+\subsubsection*{General Intersection}
+The intersection can be written in either order, by which we mean $\mathbb{P}(A \cap B) = \mathbb{P}(B \cap A)$. We can rearrange the previous result to obtain
+\begin{equation}
+    \mathbb{P}(A \cap B) = \mathbb{P}(B | A) \mathbb{P}(A) = \mathbb{P}(A|B) \mathbb{P}(B).
+\end{equation}
+
+\subsubsection*{Law of Total Probability}
+Suppose that we split up our universe $\Omega$ into partitions such that $\sum_i A_i = \Omega$, with $\mathbb{P}(A_i \cap A_j) = \emptyset$ for $i \neq j$. Then we have
+\begin{equation}
+    \mathbb{P}(B) = \sum_{i} \mathbb{P}(B | A_i) \mathbb{P}(A_i). 
+\end{equation}
+
+\subsubsection*{Bayes' Theorem}
+From the General Intersection formula we can exploit the fact that the ordering of $A$ and $B$ are equivalent to obtain the famous \textit{Bayes' Theorem}.
+\begin{equation}
+    \mathbb{P}(A | B) = \frac{\mathbb{P}(B | A) \mathbb{P}(A)}{\mathbb{P}(B)}.
+\end{equation}
+
+\subsubsection*{Extended Bayes' Theorem}
+Combing the last two results we can obtain the so called \textit{Extended Bayes' Theorem}.
+\begin{equation}
+    \mathbb{P}(A_i | B) = \frac{\mathbb{P}(B | A_i) \mathbb{P}(A_i)}{\sum_{i} \mathbb{P}(B | A_i) \mathbb{P}(A_i)}
+\end{equation}
+
+\section*{5. Discussion}
+In this issue we have explored the very building blocks of Probability Theory. Of course, this barely scratches the surface of the world of Probability and the reader will most likely have come across several more advanced features, including the concept of random variables and their extension to stochastic processes. 
+
+For those wishing to refresh their memory or perhaps just dig a little deeper into the subject I recommend the books \textit{Probability and Random Processes} by Grimmett and Stirzaker, and \textit{Probability Theory: The Logic of Science} by Jaynes. The latter provides some excellent applications to the real world. If you are feeling particularly adventurous, there is another book \textit{1000 Exercises in Probability} also by Grimmett and Stirzaker. 
+
+
+\end{document}
