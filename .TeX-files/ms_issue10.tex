@@ -1,0 +1,274 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.2in]{geometry} 
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{accents}
+\usepackage{parskip}
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+
+\begin{document}
+
+\lhead{Mr. \textsc{H. Stobart}} 
+\rhead{\textsc{Math/Stat Series \\ Issue 10, Oct-22}}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+\begin{tcolorbox}
+\begin{center}
+    \large
+    \textsc{Probability Theory: \\ A Collection of Probability Distributions}
+\end{center}
+\end{tcolorbox}
+
+\begin{center}
+\textbf{Note:} \textit{This work is intended for informative and educational purposes only.}
+\end{center}
+
+\section*{1. Introduction}
+A large part of Probability Theory is concerned with different Probability Distributions. As I said in last month's issue, I have no doubt you will have come across many of these throughout your life, whether that be at school, university, or just general knowledge. For instance, the concept of the Normal Distribution is so well known that if you ask a random individual on the street, it's likely they would give you a pretty good answer.
+
+In this month's issue I simply want to present a summary of a collection of probability distributions. Ideally, this would then serve as reference should you ever need to remind yourself of, say, the variance of the Binomial distribution.
+
+\section*{2. Terminology}
+Before diving straight in, let's remind ourselves of some important terminology.
+
+\subsubsection*{2.1 Expectation}
+The expectation, or expected value, can essentially be thought of as the average, or mean of the distribution. In other words, if we randomly sample from the distribution many times what value would we expect to get \textit{on average}. The idea that we get an average value is very important, and illustrates a critical point: \textit{the expected value may not necessarily be a value that can actually be obtained}. Consider the roll of a dice, if we add up the number of dots on the faces and divide by the number of faces we get the expected value 3.5––but there is no face of the die with three and a half dots on it! In what follows, let $X$ be a random variable.
+
+\textbf{Discrete Expectation}
+\begin{equation}
+    \mathbb{E}(X) = \sum_x x \mathbb{P}(X = x) .
+\end{equation}
+
+\textbf{Continuous Expectation}
+\begin{equation}
+    \mathbb{E}(X) = \int_{-\infty}^{\infty} x f_X (x) dx.
+\end{equation}
+
+\newpage
+
+\subsubsection*{2.2 Variance}
+The variance, as the name suggests, is how much the random variable can vary on average. It is worth noting that the variance is always positive, but that is simply to illustrate the amount by which it can vary, not the direction. It's formula is derived from that of the expectation above.
+
+\begin{equation}
+    \mathbb{V}ar(X) = \mathbb{E}\left[ X - \mathbb{E}(X) \right]^2 = \mathbb{E}(X^2) - \mathbb{E}^2(X).
+\end{equation}
+
+\section*{3. Distributions}
+We are now in a position to look at the distributions.
+
+\subsection*{3.1 Binomial Distribution}
+The binomial distribution is a \textbf{discrete} probability distribution which considers two mutually exclusive events occurring, which are sometimes referred to `success' and `failure'. 
+
+\subsubsection*{Notation}
+\begin{equation}
+    X \sim B(n,p).
+\end{equation}
+
+\subsubsection*{Probability Mass Function}
+\begin{equation}
+    \mathbb{P}(X = k) = \binom{n}{k} p^k (1-p)^k.
+\end{equation}
+
+\subsubsection*{Expectation}
+\begin{equation}
+    \mathbb{E}(X) = np.
+\end{equation}
+
+\subsubsection*{Variance}
+\begin{equation}
+    \mathbb{V}ar(X) = np(1-p).
+\end{equation}
+
+\subsection*{3.2 Poisson Distribution}
+The Poisson distribution is a \textbf{discrete} probability distribution which considers the number of events occurring within a specific time period.
+
+\subsubsection*{Notation}
+\begin{equation}
+    X \sim Poi(\lambda), \hspace{1cm} \lambda \in (0,\infty).
+\end{equation}
+
+\subsubsection*{Probability Mass Function}
+\begin{equation}
+    \mathbb{P}(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}.
+\end{equation}
+
+\subsubsection*{Expectation}
+\begin{equation}
+    \mathbb{E}(X) = \lambda.
+\end{equation}
+
+\subsubsection*{Variance}
+\begin{equation}
+    \mathbb{V}ar(X) = \lambda.
+\end{equation}
+
+\subsection*{3.3 Uniform Distribution}
+The uniform distribution is a \textbf{continous} probability distribution which considers all values within a given range, say $(a,b)$, to be equally likely. Of course, the wider the range, the smaller the value of the probability they are all equal to.
+
+\subsubsection*{Notation}
+\begin{equation}
+    X \sim \mathcal{U}(a, b), \hspace{1cm} a,b \in \mathbb{R}.
+\end{equation}
+
+\subsubsection*{Probability Density Function}
+\begin{equation}
+    f_X(x) = 
+    \begin{cases} 
+      \frac{1}{b-a} & x\in [a,b] \\
+      0 & otherwise.
+   \end{cases}
+\end{equation}
+
+\subsubsection*{Cumulative Distribution Function}
+\begin{equation}
+    F_X(x) = 
+    \begin{cases} 
+        0 & x < a \\
+      \frac{x-a}{b-a} & x\in [a,b] \\
+      1 & x > b.
+   \end{cases}
+\end{equation}
+
+\subsubsection*{Expectation}
+\begin{equation}
+    \mathbb{E}(X) = \frac{1}{2} (a+b).
+\end{equation}
+
+\subsubsection*{Variance}
+\begin{equation}
+    \mathbb{V}ar(X) = \frac{1}{12} (b - a)^2.
+\end{equation}
+
+\subsection*{3.4 Exponential Distribution}
+The exponential distribution is a \textbf{continuous} probability distribution which considers the time between two events occurring or in other words the waiting time for an event. 
+
+\subsubsection*{Notation}
+\begin{equation}
+    X \sim exp(\lambda), \hspace{1cm} \lambda \in (0,\infty).
+\end{equation}
+
+\subsubsection*{Probability Density Function}
+\begin{equation}
+    f_X(x) = 
+    \begin{cases} 
+      \lambda e^{-\lambda x} & x \geq 0 \\
+      0 & x < 0.
+   \end{cases}
+\end{equation}
+
+\subsubsection*{Cumulative Distribution Function}
+\begin{equation}
+    F_X(x) = 
+    \begin{cases} 
+        1 - e^{-\lambda x} & x \geq 0 \\
+        0 & x < 0.
+   \end{cases}
+\end{equation}
+
+\subsubsection*{Expectation}
+\begin{equation}
+    \mathbb{E}(X) = \frac{1}{\lambda}.
+\end{equation}
+
+\subsubsection*{Variance}
+\begin{equation}
+    \mathbb{V}ar(X) = \frac{1}{\lambda^2}.
+\end{equation}
+
+\subsection*{3.5 Laplace Distribution}
+The Laplace distribution is a \textbf{continuous} probability distribution. It can be viewed as the extension of the exponential distribution to the negative real line by means of mirroring along the $y$-axis. 
+
+\subsubsection*{Notation}
+\begin{equation}
+    X \sim Laplace(\mu, b), \hspace{1cm} b>0, \hspace{0.5cm} \mu \in \mathbb{R}.
+\end{equation}
+
+\subsubsection*{Probability Density Function}
+\begin{equation}
+    f_X(x) = \frac{1}{2b} \exp \left( -\frac{| x - \mu|}{b}\right).
+\end{equation}
+
+\subsubsection*{Cumulative Distribution Function}
+\begin{equation}
+    F_X(x) = 
+    \begin{cases} 
+        \frac{1}{2} \exp \left( \frac{x- \mu}{b} \right) & x < \mu \\
+        1 - \frac{1}{2} \exp \left( -\frac{x- \mu}{b} \right) & x \geq \mu.
+   \end{cases}
+\end{equation}
+
+\subsubsection*{Expectation}
+\begin{equation}
+    \mathbb{E}(X) = \mu.
+\end{equation}
+
+\subsubsection*{Variance}
+\begin{equation}
+    \mathbb{V}ar(X) = 2b^2.
+\end{equation}
+
+\subsection*{3.6 Normal Distribution}
+The Normal (or Gaussian) distribution is a \textbf{continuous} probability distribution. It may also be called the `bell curve' and is perhaps the most famous of all distributions. 
+
+\subsubsection*{Notation}
+\begin{equation}
+    X \sim \mathcal{N}(\mu, \sigma^2), \hspace{1cm} \sigma^2 >0, \hspace{0.5cm} \mu \in \mathbb{R}.
+\end{equation}
+
+\subsubsection*{Probability Density Function}
+\begin{equation}
+    f_X(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left[ -\frac{1}{2} \left( \frac{x - \mu}{\sigma}\right)^2 \right].
+\end{equation}
+
+\subsubsection*{Cumulative Distribution Function}
+\begin{align}
+    F_X(x) &= \frac{1}{\sqrt{2 \pi \sigma^2}} \int_{-\infty}^{x} \exp \left[ -\frac{1}{2} \left( \frac{y - \mu}{\sigma}\right)^2 \right] dy \\
+    &= \frac{1}{2}\left[ 1 + erf \left( \frac{x - \mu}{\sigma \sqrt{2}}\right)  \right].
+\end{align}
+Where $erf(x)$ is the error function.
+
+\subsubsection*{Expectation}
+\begin{equation}
+    \mathbb{E}(X) = \mu.
+\end{equation}
+
+\subsubsection*{Variance}
+\begin{equation}
+    \mathbb{V}ar(X) = \sigma^2.
+\end{equation}
+
+\subsection*{3.7 Log-Normal Distribution}
+The Log-Normal Distribution is a \textbf{continuous} probability distribution which can be viewed as bounding the traditional normal distribution below by zero. That is, it restricts the possible values to the positive real axis only. 
+
+\subsubsection*{Notation}
+\begin{equation}
+    X \sim Log-Normal(\mu, \sigma^2), \hspace{1cm} \sigma^2 >0, \hspace{0.5cm} \mu \in \mathbb{R}.
+\end{equation}
+
+\subsubsection*{Probability Density Function}
+\begin{equation}
+    f_X(x) = \frac{1}{x \sqrt{2 \pi \sigma^2}} \exp \left[ -\left( \frac{(\ln x - \mu)^2}{2 \sigma^2}\right) \right].
+\end{equation}
+
+\subsubsection*{Cumulative Distribution Function}
+\begin{equation}
+    F_X(x) = \frac{1}{2}\left[ 1 + erf \left( \frac{\ln x - \mu}{\sigma \sqrt{2}}\right)  \right].
+\end{equation}
+Where $erf(x)$ is the error function.
+
+\subsubsection*{Expectation}
+\begin{equation}
+    \mathbb{E}(X) = \exp \left(\mu + \frac{1}{2} \sigma^2 \right).
+\end{equation}
+
+\subsubsection*{Variance}
+\begin{equation}
+    \mathbb{V}ar(X) = [\exp(\sigma^2) - 1] \exp(2\mu + \sigma^2).
+\end{equation}
+
+\end{document}
