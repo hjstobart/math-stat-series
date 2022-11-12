@@ -1,0 +1,70 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.2in]{geometry} 
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{accents}
+\usepackage{parskip}
+\pagestyle{fancy}
+\setlength{\headheight}{40pt}
+
+\begin{document}
+
+\lhead{Mr. \textsc{H. Stobart}} 
+\rhead{\textsc{Math/Stat Series \\ Issue 11, Nov-22}}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+\begin{tcolorbox}
+\begin{center}
+    \large
+    \textsc{Probability Theory: \\ The Law of Large Numbers}
+\end{center}
+\end{tcolorbox}
+
+\begin{center}
+\textbf{Note:} \textit{This work is intended for informative and educational purposes only.}
+\end{center}
+
+\section*{1. Introduction}
+Our final two issues this year will be focused on two very important probabilistic and statistical results. This issue will consider the Law of Large Numbers, and next month we will examine the Central Limit Theorem. As such, they are short and to the point.
+
+\section*{2. Overview of the Theorem}
+Let $X_i$ be the \textit{i}th repetition of the same trial, and $\Bar{X}$ be the expected value of that trial. Then the Law of Large Numbers states
+\begin{equation}
+    \lim_{n \rightarrow \infty} \sum_{i=1}^{n} \frac{X_i}{n} = \Bar{X}. 
+\end{equation}
+
+\section*{3. What does this mean?}
+Let's unpack what that formula means. Suppose we are rolling a dice, the possible outcomes are of course {1,2,3,4,5,6}. We can also calculate the expected value
+\begin{equation}
+    \mathbb{E}(X) = \Bar{X} = \frac{1}{6} (1+2+3+4+5+6) = 3.5.
+\end{equation}
+
+We can clearly see, however, that while the expected value is 3.5, it is not possible to obtain this value on a single roll. Now let's suppose we roll the dice a large number, say $n$, times, then our formula (1) is simply stating that as $n$ tends to infinity the average of all our trials approaches the true expected value.
+
+\section*{4. Statement of the Theorem}
+There are two slightly different presentations of the law of large numbers, the \textit{strong} and \textit{weak} form. We present both here.
+
+\subsubsection*{Weak Form}
+The weak law of large numbers is stated as follows. For any $\epsilon>0$,
+\begin{equation}
+    \lim_{n\rightarrow \infty} \mathbb{P} \left(| \Bar{X} - \mu | < \epsilon \right) = 1.
+\end{equation}
+
+This is technically defined as convergence in probability. In other words, it says that for any margin of error $\epsilon$ by taking enough samples you will eventually be close enough to the true expected value $\mu$ to be within tolerance.
+
+\subsubsection*{Strong Form}
+The strong form of large numbers is stated as follows. 
+\begin{equation}
+    \mathbb{P}\left( \lim_{n \rightarrow \infty} \Bar{X}_n = \mu \right) = 1.
+\end{equation}
+Or alternatively, almost surely we have
+\begin{equation}
+    \Bar{X}_n \rightarrow \mu \hspace{1cm} as \hspace{1cm} n \rightarrow \infty \hspace{1cm}.
+\end{equation}
+
+The proofs for both of these results are quite complex and beyond the scope of these publications. The interested reader should be able to find them online or in any statistics or probability theory textbook. 
+\end{document}
