@@ -6,8 +6,6 @@
 
 Want to learn more about mathematics and statistics topics? Already studied them in the past but simply forgotten? Well this series is here to help!
 
-`** The Nov-22 issue is now live, check it out. **`
-
 ## Overview
 
 This series contains reviews, guides, and examples of variety of different mathematics and statistics topics. My aim is to publish one per month. As with the majority of my repositories, there are two reasons for its creation.
@@ -19,6 +17,15 @@ The second reason is that in reminding myself I hope this series will also help 
 ## Contents
   <table>
   <tbody>
+
+  <tr class="odd">
+  <td align="center" valign="center">
+  <img src="images/Simple.png" style="width:2.13889in;height:1.55726in" /></td>
+  <td align="left" valign="center"><ul>
+  <b>Issue 12, December 2022<b> <br>
+  <a href="https://github.com/hjstobart/math-stat-series/blob/main/ms_issue12.pdf">Probability Theory: The Central Limit Theorem</a>
+  </ul></td>
+  </tr>
 
   <tr class="odd">
   <td align="center" valign="center">
